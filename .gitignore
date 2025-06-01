@@ -1,0 +1,20 @@
+# Ignore folders containing 'env' in their names (case-insensitive match to be safe)
+**/*env*/         # matches folders like env_project, myenv_dataapp, ml_env_xyz
+**/*env*/**       # ensures nested contents are ignored too
+
+# Alternatively, if your envs all start or end with a pattern
+**/env_*/
+**/*_env/
+
+# Common Conda environment files
+*.conda
+*.yml
+
+# Optional: Ignore all hidden folders that might be Conda or Python related
+.conda/
+.venv/
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+genai_projects/
