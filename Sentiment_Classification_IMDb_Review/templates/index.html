@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sentiment Classifier</title>
+    <style>
+        body { font-family: Arial padding 30px; background-color: #f7f7f7; }
+        input[type="text"], textarea { width: 100%; padding: 10px; margin-top: 10px; }
+        button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; margin-top: 10px; }
+        .result { margin-top: 20px; font-size: 1.2em; color: #333; }
+    </style>
+</head>
+<body>
+    <h2>Sentiment Classifier</h2>
+    <form method="POST">
+        <textarea name="review" rows="4" placeholder="Enter a movie review here..."></textarea>
+        <br>
+        <button type="submit">Predict Sentiment</button>
+    </form>
+
+    {% if result %}
+        <div class="result">{{ result }}</div>
+    {% endif %}
+</body>
+</html>
