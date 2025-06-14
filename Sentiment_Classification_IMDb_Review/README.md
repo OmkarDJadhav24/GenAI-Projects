@@ -28,7 +28,8 @@ You can replace the model with your own fine-tuned transformer model for better 
 ├── model/ # Fine-tuned BERT model (saved using save_model() function)
 
 ├── templates/
-│ └── index.html # Frontend form and result display
+│ 
+    └── index.html # Frontend form and result display
 
 └── README.md # Project documentation
 
