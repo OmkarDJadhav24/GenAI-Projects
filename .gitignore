@@ -18,3 +18,5 @@
 .ipynb_checkpoints/
 
 genai_projects/
+
+Sentiment_Classification_IMDb_Review/model/
