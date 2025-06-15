@@ -83,7 +83,9 @@ at: http://127.0.0.1:8000/docs  to test the API via Swagger UI.
 ### 7. Example
 
 POST /generate/
+
 Body:
+
 {
   "prompt": "Once upon a time",
   "max_length": 50
@@ -91,6 +93,7 @@ Body:
 
 
 Response:
+
 {
   "generated_text": "Once upon a time, in a faraway land..."
 }
