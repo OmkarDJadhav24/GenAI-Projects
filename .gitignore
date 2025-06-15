@@ -17,6 +17,16 @@
 # Ignore Jupyter checkpoints
 .ipynb_checkpoints/
 
+__pycache__/
+*.py[cod]
+
+log/
+*.tfevents.*
+
 genai_projects/
 
 Sentiment_Classification_IMDb_Review/model/
+
+
+Text_Generation_GPT-2/gpt2-finetuned
+Text_Generation_GPT-2/gpt2-finetuned_model
