@@ -42,3 +42,55 @@ Text_Generation_GPT-2
 ├── text_generation_gpt2.ipynb # Script for fine-tuning GPT-2
 
 └── README.md
+
+
+
+
+## Setup Instructions
+
+### 1. Clone the repo
+
+git clone https://github.com/OmkarDJadhav24/GenAI-Projects.git
+
+cd GenAI-Projects/Text_Generation_GPT-2
+
+
+### 2. Download fine-tuned model files from Google Drive
+
+https://drive.google.com/drive/folders/1CJUH2of76C5LJ6eb9VglAxsxT_b4r9B8?usp=drive_link
+
+### 3. Create and activate a conda environment 
+
+conda create -n text_generation_env python=3.9 
+
+conda activate text_generation_env
+
+
+### 4. Install dependencies 
+
+pip install -r requirements.txt
+
+
+### 5. Start the FastAPI server
+uvicorn app.main:app --reload
+
+
+### 6. Open your browser 
+
+at: http://127.0.0.1:8000/docs  to test the API via Swagger UI.
+
+
+### 7. Example
+
+POST /generate/
+Body:
+{
+  "prompt": "Once upon a time",
+  "max_length": 50
+}
+
+
+Response:
+{
+  "generated_text": "Once upon a time, in a faraway land..."
+}
