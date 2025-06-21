@@ -58,14 +58,14 @@ git clone https://github.com/OmkarDJadhav24/GenAI-Projects.git
 cd GenAI-Projects/QA_System_RAG
 
 # 2. Setup virtual environment
-conda create --prefix ./env
+conda create --prefix ./qa_env
 conda activate env
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
 # 4. Set your HuggingFace API key
-In a .env file
+In a .env file # Different from virtual environment
 HUGGINGFACEHUB_API_TOKEN=your_token_here
 
 # 5. Run the backend
