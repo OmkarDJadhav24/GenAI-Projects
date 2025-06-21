@@ -31,7 +31,7 @@ Sentiment_Classification_IMDb_Review/model/
 Text_Generation_GPT-2/gpt2-finetuned
 Text_Generation_GPT-2/gpt2-finetuned_model
 
-QA_Bots/llm_env
+QA_System_RAG/llm_env
 *.env
 *.pdf
 

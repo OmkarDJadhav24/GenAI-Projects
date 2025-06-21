@@ -54,8 +54,8 @@ GenAI-PDF-Q&A-System-using-HuggingFace-(RAG)/
 
 ```bash
 # 1. Clone this repo
-git clone https://github.com/yourusername/genai-pdf-rag-app.git
-cd genai-pdf-rag-app
+git clone https://github.com/OmkarDJadhav24/GenAI-Projects.git
+cd GenAI-Projects
 
 # 2. Setup virtual environment
 python -m venv llm_env
