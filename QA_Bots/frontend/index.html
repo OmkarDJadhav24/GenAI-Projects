@@ -1,0 +1,70 @@
+<!-- File: frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GenAI PDF RAG App</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background: #f4f4f4; }
+    h1 { color: #333; }
+    input, button, textarea {
+      padding: 10px; margin: 10px 0; width: 100%;
+      max-width: 500px; box-sizing: border-box;
+    }
+    #response { background: #fff; padding: 20px; border: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>Upload PDF and Ask Questions</h1>
+
+  <form id="uploadForm">
+    <input type="file" id="pdfFile" accept="application/pdf" required />
+    <button type="submit">Upload PDF</button>
+  </form>
+
+  <form id="queryForm" style="display: none;">
+    <textarea id="question" placeholder="Enter your question..." rows="4"></textarea>
+    <button type="submit">Ask</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    const uploadForm = document.getElementById("uploadForm");
+    const queryForm = document.getElementById("queryForm");
+    const responseDiv = document.getElementById("response");
+
+    uploadForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const file = document.getElementById("pdfFile").files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("http://localhost:5000/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      responseDiv.innerText = data.message || data.error;
+      if (res.ok) queryForm.style.display = "block";
+    });
+
+    queryForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = document.getElementById("question").value;
+
+      const res = await fetch("http://localhost:5000/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+
+      const data = await res.json();
+      responseDiv.innerText = typeof data.response === 'string'
+        ? data.response
+        : JSON.stringify(data.response, null, 2) || data.error;
+    });
+  </script>
+</body>
+</html>
