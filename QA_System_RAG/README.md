@@ -55,17 +55,18 @@ GenAI-PDF-Q&A-System-using-HuggingFace-(RAG)/
 ```bash
 # 1. Clone this repo
 git clone https://github.com/OmkarDJadhav24/GenAI-Projects.git
-cd GenAI-Projects
+cd GenAI-Projects/QA_System_RAG
 
 # 2. Setup virtual environment
-python -m venv llm_env
-source llm_env/bin/activate  # On Windows: llm_env\Scripts\activate
+conda create --prefix ./env
+conda activate env
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
 # 4. Set your HuggingFace API key
-echo "HUGGINGFACEHUB_API_TOKEN=your_token_here" > .env
+In a .env file
+HUGGINGFACEHUB_API_TOKEN=your_token_here
 
 # 5. Run the backend
 cd backend
