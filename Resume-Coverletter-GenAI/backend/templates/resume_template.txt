@@ -1,0 +1,23 @@
+Generate a professional resume based on the following candidate information and job description.
+
+Candidate Details:
+Name: {name}
+Job Title Applied For: {job_title}
+Company Name: {company_name}
+Experience Summary: {experience}
+Key Skills: {skills}
+
+Job Description:
+{job_description}
+
+Instructions:
+- Structure the resume with the following sections:
+  1. Professional Summary
+  2. Key Skills
+  3. Work Experience
+  4. Education
+  5. Certifications or Achievements (if relevant)
+- Tailor the tone and content to the job description.
+- Keep it clean, concise, and ATS-friendly.
+
+Begin generating the resume below:

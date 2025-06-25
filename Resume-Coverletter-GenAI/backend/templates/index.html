@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume & Cover Letter Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 40px; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    label { display: block; margin-top: 15px; }
+    input, textarea, button {
+      width: 100%; max-width: 600px; padding: 10px; margin-top: 5px; box-sizing: border-box;
+    }
+    #output { margin-top: 30px; background: #fff; padding: 20px; border: 1px solid #ccc; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <h1>Resume & Cover Letter Generator</h1>
+
+  <form id="generateForm">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" required />
+
+    <label for="jobTitle">Job Title:</label>
+    <input type="text" id="jobTitle" required />
+
+    <label for="companyName">Company Name:</label>
+    <input type="text" id="companyName" required />
+
+    <label for="experience">Experience Summary:</label>
+    <textarea id="experience" rows="4" required></textarea>
+
+    <label for="skills">Key Skills (comma-separated):</label>
+    <input type="text" id="skills" required />
+
+    <label for="jobDescription">Paste Job Description:</label>
+    <textarea id="jobDescription" rows="6" required></textarea>
+
+    <label for="type">Type:</label>
+      <select id="type">
+        <option value="both" selected>Both Resume & Cover Letter</option>
+      </select>
+
+
+    <button type="submit">Generate</button>
+  </form>
+
+  <div id="output">
+    <h3>Generated Resume:</h3>
+    <pre id="resumeText"></pre>
+
+    <h3>Generated Cover Letter:</h3>
+    <pre id="coverLetterText"></pre>
+    <button id="downloadResumePDF">Download Resume (PDF)</button>
+    <button id="downloadCoverLetterPDF">Download Cover Letter (PDF)</button>
+  </div>
+
+  <script>
+    document.getElementById('generateForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const payload = {
+        name: document.getElementById('name').value,
+        job_title: document.getElementById('jobTitle').value,
+        company_name: document.getElementById('companyName').value,
+        experience: document.getElementById('experience').value,
+        skills: document.getElementById('skills').value,
+        job_description: document.getElementById('jobDescription').value,
+        type: document.getElementById('type').value,
+      };
+
+      const res = await fetch('http://localhost:8000/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      document.getElementById('resumeText').textContent = data.resume || "No resume generated.";
+      document.getElementById('coverLetterText').textContent = data.cover_letter || "No cover letter generated.";
+    });
+    
+    document.getElementById("downloadResumePDF").addEventListener("click", () => {
+    const text = document.getElementById("resumeText").textContent;
+    generatePDF(text, "resume.pdf");
+    });
+
+    document.getElementById("downloadCoverLetterPDF").addEventListener("click", () => {
+      const text = document.getElementById("coverLetterText").textContent;
+      generatePDF(text, "cover_letter.pdf");
+    });
+
+    function generatePDF(text, filename) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const lines = doc.splitTextToSize(text, 180);
+      doc.text(lines, 10, 10);
+      doc.save(filename);
+    }
+  </script>
+
+</body>
+</html>

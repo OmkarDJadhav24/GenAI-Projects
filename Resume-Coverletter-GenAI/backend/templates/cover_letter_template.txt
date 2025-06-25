@@ -1,0 +1,21 @@
+Write a personalized and professional cover letter for the following candidate applying for a job.
+
+Candidate Details:
+Name: {name}
+Job Title Applied For: {job_title}
+Company Name: {company_name}
+Experience Summary: {experience}
+Key Skills: {skills}
+
+Job Description:
+{job_description}
+
+Instructions:
+- Address the letter professionally (e.g., "Dear Hiring Manager").
+- Begin with a strong introduction mentioning the role and your enthusiasm.
+- Highlight relevant experience and skills tailored to the job description.
+- Explain why you’re a good fit for the role and the company.
+- Conclude with appreciation and a call to action for an interview.
+- Keep it under 300 words and ATS-friendly.
+
+Begin generating the cover letter below:
