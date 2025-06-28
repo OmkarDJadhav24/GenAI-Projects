@@ -1,13 +1,13 @@
-# Resume & Cover Letter Generator (GPT-3.5, FastAPI)
+# Resume & Cover Letter Generator (GPT-4, FastAPI)
 
-This GenAI-powered app helps users automatically generate a professional **resume** and **cover letter** tailored to any job description using OpenAI’s GPT-3.5 model.
+This GenAI-powered app helps users automatically generate a professional **resume** and **cover letter** tailored to any job description using OpenAI’s GPT-4 model.
 
 ### Features
 
 - Upload job description and personal details
 - Generate Resume with experience, skills, and summary
 - Generate Cover Letter customized to the company
-- Powered by GPT-3.5 via OpenAI API
+- Powered by GPT-4 via OpenAI API
 - Built with FastAPI (backend) and HTML + JavaScript (frontend)
 - Download resume and cover letter as PDF files
 
@@ -63,7 +63,7 @@ http://localhost:8000
 
 ### Technologies Used
 * FastAPI – Modern Python API framework
-* OpenAI GPT-3.5 – For generating text
+* OpenAI GPT-4 – For generating text
 * HTML + JS – Frontend with form handling
 * jsPDF – For downloading PDF files on frontend
 
