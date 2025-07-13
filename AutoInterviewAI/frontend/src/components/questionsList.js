@@ -8,20 +8,29 @@ const QuestionList = ({ questions }) => {
     <div
       style={{
         background: "#ffffff",
-        padding: "25px",
-        marginTop: "30px",
+        padding: "30px",
+        marginTop: "40px",
         borderRadius: "12px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
         fontFamily: "Segoe UI, sans-serif",
-        width: "80%",
-        marginLeft: "auto",
-        marginRight: "auto",
+        width: "85%",
+        margin: "0 auto",
       }}
     >
-      <h2 style={{ marginBottom: "15px", color: "#333" }}>💬 Interview Questions</h2>
-      <ol style={{ paddingLeft: "20px" }}>
+      <h2
+        style={{
+          marginBottom: "20px",
+          color: "#2c3e50",
+          fontSize: "1.5rem",
+          textAlign: "center",
+        }}
+      >
+        💬 Interview Questions
+      </h2>
+
+      <ol style={{ paddingLeft: "20px", fontSize: "15px", lineHeight: "1.7", color: "#444" }}>
         {questions.map((question, index) => (
-          <li key={index} style={{ marginBottom: "12px", lineHeight: "1.5" }}>
+          <li key={index} style={{ marginBottom: "14px" }}>
             {question}
           </li>
         ))}

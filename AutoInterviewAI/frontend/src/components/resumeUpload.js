@@ -16,26 +16,22 @@ const ResumeUpload = ({ onSkillsExtracted }) => {
 
     const formData = new FormData();
     formData.append("file", file);
+    setLoading(true);
 
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/upload-resume/",
         formData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+          headers: { "Content-Type": "multipart/form-data" },
         }
       );
 
-      console.log("Received summary from API:", response.data.summary);
       setSummary(response.data.summary);
 
-      // 🔍 Extract skills line
       const skillLine = response.data.summary.match(/\*\*Skills:\*\*\s(.+)/);
       if (skillLine) {
         const skills = skillLine[1].split(",").map((s) => s.trim());
-        console.log("Extracted Resume Skills:", skills);
         if (onSkillsExtracted) onSkillsExtracted(skills);
       }
     } catch (err) {
@@ -47,15 +43,34 @@ const ResumeUpload = ({ onSkillsExtracted }) => {
 
   return (
     <div>
-      <h2 style={{ marginBottom: "10px", color: "#2c3e50" }}>📄 Upload Resume</h2>
+      <h2 style={{ marginBottom: "12px", color: "#2c3e50" }}>📄 Upload Resume</h2>
       <input type="file" accept=".pdf" onChange={handleFileChange} />
-      <button onClick={handleUpload} style={{ marginLeft: "10px", padding: "6px 12px", background: "#007bff", color: "#fff", border: "none", borderRadius: "6px", cursor: "pointer" }}>
+      <button
+        onClick={handleUpload}
+        style={{
+          marginLeft: "10px",
+          padding: "6px 14px",
+          background: "#1976d2",
+          color: "#fff",
+          border: "none",
+          borderRadius: "6px",
+          cursor: "pointer",
+        }}
+      >
         {loading ? "Uploading..." : "Upload"}
       </button>
 
       {summary && (
-        <div style={{ background: "#f9f9f9", padding: "15px", marginTop: "20px", border: "1px solid #ccc", borderRadius: "10px" }}>
-          <h3>Resume Summary</h3>
+        <div
+          style={{
+            background: "#f9f9f9",
+            padding: "18px",
+            marginTop: "20px",
+            border: "1px solid #ccc",
+            borderRadius: "10px",
+          }}
+        >
+          <h3 style={{ color: "#333", marginBottom: "10px" }}>Resume Summary</h3>
           <ReactMarkdown>{summary}</ReactMarkdown>
         </div>
       )}
