@@ -5,6 +5,7 @@
 # Alternatively, if your envs all start or end with a pattern
 **/env_*/
 **/*_env/
+**/*_venv/
 
 # Common Conda environment files
 *.conda

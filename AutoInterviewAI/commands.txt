@@ -1,0 +1,10 @@
+for frontend
+
+1. open command prompt not powershell
+2. cd frontend
+3. npm start
+
+Backend
+1. auto_interview_venv\Scripts\activate
+2. cd backend
+3. uvicorn app.main:app --reload
